@@ -1,0 +1,47 @@
+.box-top-fixed {
+  position: fixed;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  background: black;
+  top: 50px;
+  color: white;
+}
+.box-content {
+  position: relative;
+  margin: 50px auto;
+  text-align: center;
+}
+.box-img {
+  width: fit-content;
+  margin-top: 100px;
+}
+.cur-chap select {
+  border: 1px solid;
+  padding: 5px;
+}
+.btn-chap,
+.prev-next {
+  margin: 10px;
+}
+.btn-chap button {
+  height: 30px;
+  padding: 0 15px;
+}
+.text-left {
+  text-align: left;
+  margin-left: 50px;
+  margin-top: 10px;
+}
+
+@media (max-width: 680px) {
+  .box-content {
+    margin: 0;
+  }
+  .box-img > img {
+    width: 100%;
+  }
+  .box-getlink {
+    width: 100%;
+  }
+}

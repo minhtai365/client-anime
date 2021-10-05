@@ -1,0 +1,68 @@
+
+a,a:hover {
+  color: white;
+}
+
+/* .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 60px;
+}
+.col-3 {
+  width: 23%;
+  padding: 1%;
+}
+.col-8{
+    width: 180px;
+} */
+.h-150 {
+  height: 150px;
+}
+.radius-10{
+  border-radius: 10px;
+}
+.home-card {
+  width: 100%;
+  height: 100%;
+}
+.home-bgimg {
+  width: 100%;
+  height: 100%;
+}
+.position-rel {
+  position: relative;
+}
+.position-abs {
+  position: absolute;
+}
+.text-small {
+  font-size: 12px;
+  text-align: right;
+}
+
+.position-abs .abs-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.abs-bottom {
+  bottom: 0;
+}
+.abs-top-left {
+  top: 0;
+  left: 0;
+}
+.abs-bottom-left {
+  bottom: 0;
+  left: 0;
+}
+.abs-bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+@media (max-width: 680px) {
+}
+
+@media (max-width: 480px) {
+}

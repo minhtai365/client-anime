@@ -1,0 +1,43 @@
+.my-header {
+  position: fixed;
+  height: 50px;
+  width: 100%;
+  background: rgb(23, 23, 44);
+  top: 0;
+  z-index: 222;
+}
+.header-box {
+  position: absolute;
+  top: 50%;
+  color: red;
+  transform: translateY(-50%);
+}
+.menu > ul,
+.logo {
+  margin: 0;
+}
+.text-search {
+  height: 30px;
+  border-radius: 25px;
+  font-size: 14px;
+  margin-right: 10px;
+}
+.btn-search {
+  height: 30px;
+  border-radius: 25px;
+  line-height: 14px;
+  font-size: 14px;
+}
+.navbar-nav {
+  display: flex;
+  justify-content: flex-end;
+}
+li {
+  list-style: none;
+  margin: 0 10px;
+}
+.nav-link {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+}
