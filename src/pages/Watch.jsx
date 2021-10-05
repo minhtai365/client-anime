@@ -1,24 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import ReactPlayer from 'react-player';
 import { useParams } from 'react-router';
+import { API_URL_SOURCE } from '../config/_index';
 import { getAnimeInfoApi } from '../custom/repositories/api.repository';
-import ReactPlayer from 'react-player'
-import { API_URL, API_URL_SOURCE } from '../config/_index';
 import Episodes from '../shared/Episodes';
 import Recommended from '../shared/Recommended';
 export default function Watch() {
     const [objSource, setObjSource] = useState(null);
     const anime = useParams();
-    console.log(anime);
     useEffect(() => {
         async function fetchData() {
             let res = await getAnimeInfoApi().getDataInfo(anime.id + '/episodes/' + anime.index);
-            console.log(res.data);
             if (res.success) {
                 setObjSource(res.data);
             }
         }
         fetchData();
-    }, [anime.slug])
+    }, [anime.slug,anime.id,anime.index])
 
     // const url='http://localhost:3000/'
     return (

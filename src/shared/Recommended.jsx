@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import Slider from '../componets/Slider';
 import { getRecommendedApi } from '../custom/repositories/api.repository';
 
@@ -7,7 +7,6 @@ export default function Recommended() {
     useEffect(() => {
         async function fetchData() {
             let res = await getRecommendedApi().getData();
-            console.log(res.data);
             if (res.success) {
                 setRecommended(res.data);
             }

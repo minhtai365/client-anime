@@ -20,11 +20,11 @@ export default function Episodes(props) {
                 <h4>
                     Danh sách tập
                 </h4>
-                <div class="row">
+                <div className="row">
                     {props.data && props.data.map((item, i) => {
                         return (
-                            <Link className="col-12 col-md-6 my-2" to={`/watch/${item.slug}/${props.id}/${i}`} >
-                                <div class="row ">
+                            <Link key={i} className="col-12 col-md-6 my-2" to={`/watch/${item.slug}/${props.id}/${i}`} >
+                                <div className="row ">
                                     <div className="col-5">
                                         <img className="w-100" src={item.thumbnail_medium} alt={item.full_name} />
                                     </div>

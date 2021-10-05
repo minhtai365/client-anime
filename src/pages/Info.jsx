@@ -37,7 +37,7 @@ export default function Info() {
                             hr = ''
                         }
                         return (
-                            <Link className="genres-name" to={item.url}>{item.name} {hr}</Link>
+                            <Link key={i} className="genres-name" to={item.url}>{item.name} {hr}</Link>
                         )
                     })}
                 </div>

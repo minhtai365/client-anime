@@ -41,13 +41,12 @@ export default function index(props) {
             }
         ]
     };
-    console.log(props.data);
     return (
         <div>
             <Slider {...settings}>
                 {props.data.map((item, i) => {
                     return (
-                        <div>
+                        <div key={i}>
                             <Link to={'/info/' + item.slug}>
                                 <div className="position-relative">
                                     <div className="m-2 opacity-75 radius-10" style={{ backgroundImage: `url(${item.thumbnail})`, height: '150px' }}></div>

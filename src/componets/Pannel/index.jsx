@@ -15,15 +15,13 @@ export default function index(props) {
         autoplaySpeed: 4000,
         cssEase: "linear",
         height: '300px'
-
     };
-    console.log(props.data);
     return (
         <div>
             <Slider {...settings}>
                 {props.data.map((item, i) => {
                     return (
-                        <div>
+                        <div key={i}>
                             <Link to={'/info/' + item.slug}>
                                 <div className="position-relative">
                                     <div className="m-2 opacity-75" style={{
