@@ -9,19 +9,19 @@ import Watch from './pages/Watch';
 function App() {
 
   return (
-    <Router>
-      <div>
-        <Header />
-        <hr className="mb-5"/>
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/info/:slug' component={Info} />
-          <Route path='/watch/:slug/:id/:index' component={Watch} />
-          {/* <Route exact path='/ranking/:slug' component={ReadChap} />
+      <Router>
+        <div>
+          <Header />
+          <hr className="mb-5" />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/info/:slug' component={Info} />
+            <Route path='/watch/:slug/:id/:index' component={Watch} />
+            {/* <Route exact path='/ranking/:slug' component={ReadChap} />
           <Route path='/genres/:slug' component={GetPage} /> */}
-        </Switch>
-      </div>
-    </Router>
+          </Switch>
+        </div>
+      </Router>
   );
 }
 

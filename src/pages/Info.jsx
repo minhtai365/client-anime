@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { getAnimeInfoApi } from '../custom/repositories/api.repository';
+import { getEpisodes, getSlug } from '../reduxtoolkit/sliceReducer/dataSlice';
 import Episodes from '../shared/Episodes';
 import Recommended from '../shared/Recommended';
 import './css/home.css';
@@ -10,6 +12,8 @@ export default function Info() {
     const [objInfo, setObjInfo] = useState(null);
     const [showEpis, setShowEpis] = useState(false)
     const anime = useParams();
+    const dispatch = useDispatch();
+    dispatch(getSlug(anime.slug));
     let history = useHistory();
     useEffect(() => {
         async function fetchData() {
@@ -17,10 +21,12 @@ export default function Info() {
             // console.log(res.data);
             if (res.success) {
                 setObjInfo(res.data);
+                dispatch(getEpisodes(res.data.episodes));
             }
         }
         fetchData();
     }, [anime.slug])
+
     const watchAnime = (ani, index) => {
         history.push(`/watch/${ani.episodes[0].slug}/${ani.id}/${index}`);
     }

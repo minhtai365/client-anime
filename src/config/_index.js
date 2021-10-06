@@ -7,10 +7,10 @@
 // export const API_URL = "https://server-anime.vercel.app/api/v1";
 // export const API_URL_SOURCE = "https://server-anime.vercel.app/";
 
-export const API_URL = "https://animetv-server.vercel.app/api/v1";
-export const API_URL_SOURCE = "https://animetv-server.vercel.app/";
+// export const API_URL = "https://animetv-server.vercel.app/api/v1";
+// export const API_URL_SOURCE = "https://animetv-server.vercel.app/";
 
-// export const API_URL = "https://netime.glitch.me/api/v1";
-// export const API_URL_SOURCE = "https://netime.glitch.me/";
+export const API_URL = "https://netime.glitch.me/api/v1";
+export const API_URL_SOURCE = "https://netime.glitch.me/";
 
 // export const API_URL = "";
