@@ -6,7 +6,7 @@ export default function Header() {
             {/* <li><Link to='/' className="nav-link"> Home </Link></li>
                     <li><Link to='/upload' className="nav-link">Contact</Link></li>
                     <li><Link to='/read-page' className="nav-link">Get-Link</Link></li> */}
-            <div className="w-100 d-flex justify-content-around align-items-center header-box">
+            {/* <div className="w-100 d-flex justify-content-around align-items-center header-box">
                 <h3 className="logo">Ani<span className="text-success">◕‿‿◕</span>E
                 </h3>
                 <div className="form-search">
@@ -24,7 +24,7 @@ export default function Header() {
                         <li className="item-parent">Xếp hạng</li>
                     </ul>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
