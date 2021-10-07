@@ -13,19 +13,19 @@ export default function Info() {
     const [showEpis, setShowEpis] = useState(false)
     const anime = useParams();
     const dispatch = useDispatch();
-    dispatch(getSlug(anime.slug));
+    // dispatch(getSlug(anime.slug));
+    localStorage.setItem('anime-slug', anime.slug);
     let history = useHistory();
     useEffect(() => {
         async function fetchData() {
             let res = await getAnimeInfoApi().getDataInfo(anime.slug);
-            // console.log(res.data);
             if (res.success) {
                 setObjInfo(res.data);
                 dispatch(getEpisodes(res.data.episodes));
             }
         }
         fetchData();
-    }, [anime.slug])
+    }, [anime.slug, dispatch])
 
     const watchAnime = (ani, index) => {
         history.push(`/watch/${ani.episodes[0].slug}/${ani.id}/${index}`);

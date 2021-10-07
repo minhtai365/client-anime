@@ -1,19 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { API_URL_SOURCE } from '../config/_index';
 import { getAnimeInfoApi } from '../custom/repositories/api.repository';
+import { getEpisodes } from '../reduxtoolkit/sliceReducer/dataSlice';
 import Episodes from '../shared/Episodes';
 import Recommended from '../shared/Recommended';
-import axios from 'axios';
-import { useSelector, useDispatch } from 'react-redux';
-import { getEpisodes } from '../reduxtoolkit/sliceReducer/dataSlice';
 export default function Watch() {
     const [objSource, setObjSource] = useState(null);
     const anime = useParams();
     const dispatch = useDispatch();
-    const slug = useSelector(state => state.getdata.slug);
-    const episodes = useSelector(state => state.getdata.episodes);
+    // const slug = useSelector(state => state.getdata.slug);
+    let episodes = useSelector(state => state.getdata.episodes);
+    // if (episodes.length === 0) {
+    useEffect(() => {
+        async function fetchData() {
+            let res = await getAnimeInfoApi().getDataInfo(localStorage.getItem('anime-slug'));
+            if (res.success) {
+                episodes = res.data.episodes
+                dispatch(getEpisodes(res.data.episodes));
+            }
+        }
+        fetchData();
+    }, [dispatch])
+    // }
+
     // const instance = axios.create({
     //     // baseURL: 'https://animetv-server.vercel.app/api/v1',
     //     // headers: {
@@ -35,16 +46,7 @@ export default function Watch() {
         fetchData();
     }, [anime.slug, anime.id, anime.index])
 
-    useEffect(() => {
-        async function fetchData() {
-            let res = await getAnimeInfoApi().getDataInfo(slug);
-            if (res.success) {
-                dispatch(getEpisodes(res.data.episodes));
-            }
-        }
-        fetchData();
-    }, [episodes, slug])
-    console.log(episodes);
+
     return (
         <div>
             <div className="container text-light">
@@ -55,7 +57,6 @@ export default function Watch() {
                 <Episodes data={episodes} id={anime.id} />
                 <Recommended />
             </div>
-
         </div>
     )
 }
