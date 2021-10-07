@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import Header from './componets/Header';
-import Home from './pages/Home';
-import Info from './pages/Info';
-import Watch from './pages/Watch';
+import ProgressBar from "react-topbar-progress-indicator";
+
+const Header = lazy(() => import('./componets/Header'));
+const Home = lazy(() => import('./pages/Home'));
+const Info = lazy(() => import('./pages/Info'));
+const Watch = lazy(() => import('./pages/Watch'));
+
+ProgressBar.config({
+  barColors: {
+    "0": "#ff0000",
+  },
+});
 
 function App() {
 
   return (
+    <Suspense fallback={<ProgressBar />}>
+
       <Router>
         <div>
           <Header />
@@ -22,6 +32,8 @@ function App() {
           </Switch>
         </div>
       </Router>
+    </Suspense>
+
   );
 }
 

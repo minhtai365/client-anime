@@ -10,7 +10,6 @@ export default function Watch() {
     const [objSource, setObjSource] = useState(null);
     const anime = useParams();
     const dispatch = useDispatch();
-    // const slug = useSelector(state => state.getdata.slug);
     let episodes = useSelector(state => state.getdata.episodes);
     // if (episodes.length === 0) {
     useEffect(() => {
@@ -49,14 +48,15 @@ export default function Watch() {
 
     return (
         <div>
-            <div className="container text-light">
-                <ReactPlayer controls={true} playing={true} width="100%" height="70%"
-                    url={objSource && `${objSource.videoSource}`} />
-                <h6>{objSource && objSource.full_name}</h6>
-                <div className="text-des mb-3">{objSource && objSource.views} lượt xem</div>
-                <Episodes data={episodes} id={anime.id} />
-                <Recommended />
-            </div>
-        </div>
+            {objSource !== null ?
+                <div className="container text-light">
+                    <ReactPlayer controls={true} playing={true} width="100%" height="70%"
+                        url={objSource && `${objSource.videoSource}`} />
+                    <h6>{objSource && objSource.full_name}</h6>
+                    <div className="text-des mb-3">{objSource && objSource.views} lượt xem</div>
+                    <Episodes data={episodes} id={anime.id} />
+                    <Recommended />
+                </div>
+                : null}</div >
     )
 }
