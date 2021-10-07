@@ -14,6 +14,7 @@ export default function Episodes(props) {
     //     }
     //     fetchData();
     // }, [props.id])
+    console.log(props.data);
     return (
         <div>
             <div className="episodes ms-md-5 mt-3">
