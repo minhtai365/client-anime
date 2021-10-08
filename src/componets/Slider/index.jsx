@@ -32,13 +32,13 @@ export default function index(props) {
                     initialSlide: 2
                 }
             },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
+            // {
+            //     breakpoint: 480,
+            //     settings: {
+            //         slidesToShow: 1,
+            //         slidesToScroll: 1
+            //     }
+            // }
         ]
     };
     return (
@@ -48,8 +48,12 @@ export default function index(props) {
                     return (
                         <div key={i}>
                             <Link to={'/info/' + item.slug}>
-                                <div className="position-relative">
-                                    <div className="m-2 opacity-75 radius-10" style={{ backgroundImage: `url(${item.thumbnail})`, height: '150px' }}></div>
+                                <div className="position-relative home-card">
+                                    <div className="m-2 radius-10 img-slide" style={{ backgroundImage: `url(${item.thumbnail})`, height: '150px' }}>
+                                    </div>
+                                    <div className="position-abs abs-items-center">
+                                        <i className=" icon-35 far fa-play-circle"></i>
+                                    </div>
                                     <div className="position-abs abs-bottom mx-3 p-1 text-small text-start">
                                         <div>
                                             {item.name}

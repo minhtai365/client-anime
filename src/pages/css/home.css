@@ -1,5 +1,5 @@
-
-a,a:hover {
+a,
+a:hover {
   color: white;
 }
 
@@ -18,7 +18,7 @@ a,a:hover {
 .h-150 {
   height: 150px;
 }
-.radius-10{
+.radius-10 {
   border-radius: 10px;
 }
 .home-card {
@@ -28,6 +28,37 @@ a,a:hover {
 .home-bgimg {
   width: 100%;
   height: 100%;
+  opacity: 0.7;
+  transition: all 0.5s;
+}
+.img-slide,
+.pannel-img {
+  opacity: 0.7;
+  transition: all 0.5s;
+}
+.img-skew {
+  transform: skewX(3deg);
+}
+.home-card:hover .home-bgimg,
+.home-card:hover .img-slide,
+.pannel-box:hover .pannel-img {
+  opacity: 0.3;
+  transform: skewX(3deg);
+}
+.icon-35 {
+  opacity: 0;
+  transition: all 0.5s;
+  font-size: 35px;
+}
+.icon-70 {
+  opacity: 0;
+  transition: all 0.5s;
+  font-size: 70px;
+}
+.home-card:hover .icon-35,
+.pannel-box:hover .icon-70,
+.icon-35:hover {
+  opacity: 1 !important;
 }
 .position-rel {
   position: relative;
@@ -35,9 +66,10 @@ a,a:hover {
 .position-abs {
   position: absolute;
 }
-.text-small {
-  font-size: 12px;
-  text-align: right;
+.abs-items-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .position-abs .abs-name {
@@ -59,6 +91,12 @@ a,a:hover {
 .abs-bottom-right {
   bottom: 0;
   right: 0;
+}
+.text-small {
+  font-size: 12px;
+}
+.h-5 {
+  font-size: 14px;
 }
 
 @media (max-width: 680px) {

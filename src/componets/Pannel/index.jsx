@@ -23,11 +23,14 @@ export default function index(props) {
                     return (
                         <div key={i}>
                             <Link to={'/info/' + item.slug}>
-                                <div className="position-relative">
-                                    <div className="m-2 opacity-75" style={{
+                                <div className="position-relative pannel-box">
+                                    <div className="m-2 pannel-img" style={{
                                         backgroundImage: `url(${item.thumbnail})`, backgroundSize: 'cover',
                                         borderRadius: '15px', height: '300px'
                                     }}></div>
+                                    <div className="position-abs abs-items-center">
+                                        <i className="icon-70 far fa-play-circle"></i>
+                                    </div>
                                     <div className="position-abs abs-bottom mx-3 p-1 text-start">
                                         <div>
                                             {item.name}

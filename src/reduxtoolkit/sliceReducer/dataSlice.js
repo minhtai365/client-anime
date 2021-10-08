@@ -7,13 +7,17 @@ const getdata = createSlice({
         dataslides: [],
         search: '',
         page: 1,
-        slug: 'minh-tai',
-        episodes:[],
+        // slug: 'minh-tai',
+        recommend:[],
+        episodes: [],
 
     },
     reducers: {
-        getSlug: (state, action) => {
-            state.slug = action.payload
+        // getSlug: (state, action) => {
+        //     state.slug = action.payload
+        // },
+        getRecommended: (state, action) => {
+            state.recommend = action.payload;
         },
         getEpisodes: (state, action) => {
             console.log(action);
@@ -38,5 +42,5 @@ const getdata = createSlice({
     }
 });
 const { reducer, actions } = getdata;
-export const { getSlug, getEpisodes, getInfo, getSlides, getSearch, getDt, getPage } = actions;
+export const { getSlug, getEpisodes, getRecommended, getInfo, getSlides, getSearch, getDt, getPage } = actions;
 export default reducer;

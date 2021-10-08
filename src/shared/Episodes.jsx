@@ -21,13 +21,16 @@ export default function Episodes(props) {
                 <h4>
                     Danh sách tập
                 </h4>
-                <div className="row">
+                <div className="row container-epi ">
                     {props.data && props.data.map((item, i) => {
                         return (
-                            <Link key={i} className="col-12 col-md-6 my-2" to={`/watch/${item.slug}/${props.id}/${i}`} >
+                            <Link key={i} className="col-12 col-md-6 my-2" to={`/watch/${props.slug}/${props.id}/${i}`} >
                                 <div className="row ">
-                                    <div className="col-5">
-                                        <img className="w-100" src={item.thumbnail_medium} alt={item.full_name} />
+                                    <div className="col-5 position-relative epi-box">
+                                        <img className="w-100 epi-img" src={item.thumbnail_medium} alt={item.full_name} />
+                                        <div className="position-abs abs-items-center">
+                                            <i className="icon-35 far fa-play-circle"></i>
+                                        </div>
                                     </div>
                                     <div className="col-7 position-relative">
                                         <div className="content-center text-des">

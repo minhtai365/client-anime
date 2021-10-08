@@ -11,17 +11,18 @@ export default function Watch() {
     const anime = useParams();
     const dispatch = useDispatch();
     let episodes = useSelector(state => state.getdata.episodes);
-    // if (episodes.length === 0) {
-    useEffect(() => {
-        async function fetchData() {
-            let res = await getAnimeInfoApi().getDataInfo(localStorage.getItem('anime-slug'));
-            if (res.success) {
-                episodes = res.data.episodes
-                dispatch(getEpisodes(res.data.episodes));
-            }
+    // useEffect(() => {
+    async function fetchData() {
+        let res = await getAnimeInfoApi().getDataInfo(anime.slug);
+        if (res.success) {
+            episodes = res.data.episodes
+            dispatch(getEpisodes(res.data.episodes));
         }
+    }
+    if (episodes.length === 0) {
         fetchData();
-    }, [dispatch])
+    }
+    // }, [dispatch])
     // }
 
     // const instance = axios.create({
@@ -54,7 +55,7 @@ export default function Watch() {
                         url={objSource && `${objSource.videoSource}`} />
                     <h6>{objSource && objSource.full_name}</h6>
                     <div className="text-des mb-3">{objSource && objSource.views} lượt xem</div>
-                    <Episodes data={episodes} id={anime.id} />
+                    <Episodes data={episodes} slug={anime.slug} id={anime.id} />
                     <Recommended />
                 </div>
                 : null}</div >

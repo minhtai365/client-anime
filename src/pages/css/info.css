@@ -35,3 +35,44 @@
   -webkit-line-clamp: 7; /* number of lines to show */
   -webkit-box-orient: vertical;
 }
+.epi-img {
+  opacity: 0.8;
+  transition: all 0.5s;
+  border-radius: 5px;
+}
+.epi-box:hover .epi-img {
+  opacity: 0.5;
+  transform: skewX(3deg);
+}
+.epi-box:hover .icon-35 {
+  opacity: 1;
+}
+.genres-name {
+  text-decoration: none;
+  color: chartreuse;
+}
+.genres-name:hover {
+  color: forestgreen;
+}
+.container-epi {
+  max-height: 500px;
+  overflow-y: auto;
+  border: 1px dotted red;
+  padding-block: 10px;
+}
+/* scroll style */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 10px;
+}

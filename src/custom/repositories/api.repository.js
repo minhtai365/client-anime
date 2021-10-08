@@ -41,7 +41,7 @@ export function getSlideApi() {
 let getRanking = false;
 export function getRankingApi() {
   if (!getRanking) {
-    getRanking = new Api("/ranking/:slug");
+    getRanking = new Api("/ranking");
   }
   return getRanking;
 }
@@ -57,7 +57,7 @@ export function getAnimeInfoApi() {
 let getAnimeGenres = false;
 export function getAnimeGenresApi() {
   if (!getAnimeGenres) {
-    getAnimeGenres = new Api("/genres/:slug");
+    getAnimeGenres = new Api("/genres");
   }
   return getAnimeGenres;
 }

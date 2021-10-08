@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { getAnimeInfoApi } from '../custom/repositories/api.repository';
-import { getEpisodes, getSlug } from '../reduxtoolkit/sliceReducer/dataSlice';
+import { getEpisodes } from '../reduxtoolkit/sliceReducer/dataSlice';
 import Episodes from '../shared/Episodes';
 import Recommended from '../shared/Recommended';
 import './css/home.css';
@@ -14,8 +14,9 @@ export default function Info() {
     const anime = useParams();
     const dispatch = useDispatch();
     // dispatch(getSlug(anime.slug));
-    localStorage.setItem('anime-slug', anime.slug);
     let history = useHistory();
+    const epiRef = useRef(null)
+    const executeScroll = () => epiRef.current.scrollIntoView()
     useEffect(() => {
         async function fetchData() {
             let res = await getAnimeInfoApi().getDataInfo(anime.slug);
@@ -28,17 +29,17 @@ export default function Info() {
     }, [anime.slug, dispatch])
 
     const watchAnime = (ani, index) => {
-        history.push(`/watch/${ani.episodes[0].slug}/${ani.id}/${index}`);
+        history.push(`/watch/${ani.slug}/${ani.id}/${index}`);
     }
     return (
         <div>
             {objInfo !== null ?
                 <div className="container text-light">
                     <div className="anime-name">
-                        <h4>{objInfo && objInfo.name}</h4>
+                        <h4 className='text-danger'>{objInfo && objInfo.name}</h4>
                     </div>
                     <div className="ren-genres mb-3">
-                        Thể loại :  {objInfo && objInfo.genres.map((item, i) => {
+                        <span className="text-danger"> Thể loại :</span>  {objInfo && objInfo.genres.map((item, i) => {
                             let hr = ' - ';
                             if (i === objInfo.genres.length - 1) {
                                 hr = ''
@@ -54,7 +55,11 @@ export default function Info() {
                                 backgroundImage: `url(${objInfo && objInfo.thumbnail})`
                             }}></div>
                             <div className="content-bottom d-flex justify-content-around w-100">
-                                <div className="mw-40 btn btn-success text-btn" onClick={() => setShowEpis(!showEpis)}>
+                                <div className="mw-40 btn btn-success text-btn" onClick={() => {
+                                    setShowEpis(!showEpis);
+                                    executeScroll();
+                                }
+                                } >
                                     Chọn tập
                                 </div>
                                 <div className="mw-40 btn btn-danger text-btn" onClick={() => watchAnime(objInfo, '0')}>
@@ -73,13 +78,16 @@ export default function Info() {
                         </div>
 
                     </div>
+                    <div ref={epiRef}>
+                        {showEpis && <Episodes ref={epiRef} data={objInfo && objInfo.episodes} slug={objInfo.slug} id={objInfo.id} />}
+                    </div>
+
                     <div className="d-block d-md-none mx-2 mt-3">
                         <h4>NỘI DUNG PHIM</h4>
                         <h5>{objInfo && objInfo.name}</h5>
                         <p>{objInfo && objInfo.description}</p>
                     </div>
-                    {showEpis && <Episodes data={objInfo && objInfo.episodes} id={objInfo.id} />
-                    }
+
 
                     {/* Hôm nay xem gì */}
 

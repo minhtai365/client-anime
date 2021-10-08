@@ -1,0 +1,11 @@
+.my-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgb(23, 23, 44);
+  z-index: 222;
+  font-size: 12px;
+  color: white;
+  line-height: 30px;
+}
