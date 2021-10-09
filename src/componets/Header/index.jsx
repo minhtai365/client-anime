@@ -13,7 +13,9 @@ export default function Header() {
                     <li><Link to='/read-page' className="nav-link">Get-Link</Link></li> */}
             <div className="w-100 d-flex justify-content-around align-items-center header-box">
                 <div className="d-flex">
-                    <h3 className="logo text-danger d-flex logo">Ani<span className="text-success">◕‿‿◕</span>E</h3>
+                    <Link className="d-flex logo " to={'/'}>
+                        <h3 className=" text-danger d-flex">Ani<span className="text-success">◕‿‿◕</span>E</h3>
+                    </Link>
                     <div className="menu d-none d-md-block">
                         <ul className="d-flex box-item">
                             <Link className={location.pathname === "/" ? "active-parent item-parent" : "item-parent"} to={'/'}><li >Trang chủ</li></Link>

@@ -25,7 +25,7 @@ function App() {
       <Router>
         <div>
           <Header />
-          <hr className="mb-5" />
+          <hr className="mb-2" />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/info/:slug' component={Info} />
