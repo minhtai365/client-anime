@@ -56,8 +56,10 @@ export default function Info() {
                             }}></div>
                             <div className="content-bottom d-flex justify-content-around w-100">
                                 <div className="mw-40 btn btn-success text-btn" onClick={() => {
+                                    if (!showEpis) {
+                                        executeScroll();
+                                    }
                                     setShowEpis(!showEpis);
-                                    executeScroll();
                                 }
                                 } >
                                     Chọn tập

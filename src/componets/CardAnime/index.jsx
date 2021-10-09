@@ -7,7 +7,7 @@ export default function index(props) {
         <div>
             <div className="row">
                 {props.data.slice(0, 12).map((item, i) => {
-                    return <Link key={i} to={'info/' + item.slug} className="col-6 col-md-3  h-150 mb-3">
+                    return <Link key={i} to={'/info/' + item.slug} className="col-6 col-md-3  h-150 mb-3">
                         <div className="home-card position-rel ">
                             <img className="home-bgimg radius-10" src={item.thumbnail} alt={item.name} />
                             <div className="position-abs abs-items-center">
