@@ -1,30 +1,46 @@
 import React from 'react';
 import './header.css';
+import { useLocation, Link } from 'react-router-dom';
+import ListItem from '../ListItem'
 export default function Header() {
+    let location = useLocation();
+    console.log(location.pathname.indexOf('/genres/'));
+    console.log(location);
     return (
-        <div className="text-light my-header">
+        <div className="text-light my-header text-center position-relative">
             {/* <li><Link to='/' className="nav-link"> Home </Link></li>
                     <li><Link to='/upload' className="nav-link">Contact</Link></li>
                     <li><Link to='/read-page' className="nav-link">Get-Link</Link></li> */}
-            {/* <div className="w-100 d-flex justify-content-around align-items-center header-box">
-                <h3 className="logo">Ani<span className="text-success">◕‿‿◕</span>E
-                </h3>
+            <div className="w-100 d-flex justify-content-around align-items-center header-box">
+                <div className="d-flex">
+                    <h3 className="logo text-danger d-flex logo">Ani<span className="text-success">◕‿‿◕</span>E</h3>
+                    <div className="menu d-none d-md-block">
+                        <ul className="d-flex box-item">
+                            <Link className={location.pathname === "/" ? "active-parent item-parent" : "item-parent"} to={'/'}><li >Trang chủ</li></Link>
+                            <li className={location.pathname.indexOf('/genres/') === 0 ? "active-parent expan-menu item-parent" : "item-parent expan-menu"}>Thể loại
+                                <div className="list-item">
+                                    <ListItem type="genres" />
+                                </div>
+                            </li>
+                            <li className={location.pathname.indexOf('/ranking/') === 0 ? "active-parent expan-menu item-parent" : "item-parent expan-menu"}>Xếp hạng
+                                <div className="list-item">
+                                    <ListItem type="ranking" />
+                                </div></li>
+                        </ul>
+                    </div>
+                </div>
                 <div className="form-search">
                     <form className="form-inline d-flex">
                         <div className="form-group me-1">
                             <input type="text" name="search" className="form-control text-search" placeholder="Search..." />
                         </div>
-                        <div className="btn btn-primary btn-search">Search</div>
+                        <div className="box-search"><i className="fas fa-search btn-search"></i></div>
                     </form>
                 </div>
-                <div className="menu">
-                    <ul className="d-flex">
-                        <li className="item-parent">Trang chủ</li>
-                        <li className="item-parent">Thể loại</li>
-                        <li className="item-parent">Xếp hạng</li>
-                    </ul>
-                </div>
-            </div> */}
+
+            </div>
+            {/* // <ListItem /> */}
+
         </div>
     )
 }

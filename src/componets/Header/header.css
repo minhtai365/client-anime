@@ -9,12 +9,15 @@
 .header-box {
   position: absolute;
   top: 50%;
-  color: red;
+  color: white;
   transform: translateY(-50%);
 }
-.menu > ul,
 .logo {
-  margin: 0;
+  line-height: 50px;
+  align-items: center;
+}
+.menu {
+  /* line-height: 37px; */
 }
 .text-search {
   height: 30px;
@@ -22,22 +25,69 @@
   font-size: 14px;
   margin-right: 10px;
 }
-.btn-search {
-  height: 30px;
-  border-radius: 25px;
-  line-height: 14px;
-  font-size: 14px;
+.box-search {
+  position: relative;
 }
-.navbar-nav {
-  display: flex;
-  justify-content: flex-end;
+.btn-search {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-25%);
+  border-radius: 50%;
+  /* line-height: 14px; */
+  font-size: 16px;
+  color: red;
 }
 li {
   list-style: none;
   margin: 0 10px;
 }
-.nav-link {
+.expan-menu {
+  position: relative;
+}
+.list-item {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  font-size: 15px;
+  width: 250px;
+}
+.expan-menu:hover .list-item {
+  display: block;
+  background: rgb(23, 23, 44);
+  padding-inline: 20px;
+  padding-block: 10px;
+}
+.list-item:focus {
+  display: none;
+}
+/* .expan-menu:not(:focus):hover .item-parent {
+  color: green;
+}
+.expan-menu:focus {
+  display: none;
+} */
+
+.item-parent {
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 15px;
   text-decoration: none;
-  font-weight: bold;
-  color: white;
+  padding-block: 15px;
+}
+.item-parent:hover {
+  color: red;
+}
+.active-parent {
+  text-decoration: underline red solid;
+  color: red;
+}
+.sub-menu {
+  color: red;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 5px;
 }
