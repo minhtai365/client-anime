@@ -62,6 +62,23 @@ export function getAnimeGenresApi() {
   return getAnimeGenres;
 }
 
+// ?q=a&page=1&limit=30
+let getAnimesearchs = false;
+export function getSearchApi() {
+  if (!getAnimesearchs) {
+    getAnimesearchs = new Api("/search");
+  }
+  return getAnimesearchs;
+}
+
+let getAnimeComments = false;
+export function getAnimeCommentsApi() {
+  if (!getAnimeComments) {
+    getAnimeComments = new Api("/anime/:animeId/comments");
+  }
+  return getAnimeComments;
+}
+
 let getAnimeEpisodes = false;
 export function getAnimeEpisodesApi() {
   if (!getAnimeEpisodes) {
@@ -76,14 +93,6 @@ export function getAnimeEpisodeIndexApi() {
     getAnimeEpisodeIndex = new Api("/anime/:animeId/episodes/:episodeIndex");
   }
   return getAnimeEpisodeIndex;
-}
-
-let getAnimeComments = false;
-export function getAnimeCommentsApi() {
-  if (!getAnimeComments) {
-    getAnimeComments = new Api("/anime/:animeId/comments");
-  }
-  return getAnimeComments;
 }
 // let infoSet = false;
 // export function setInfoApi() {

@@ -36,7 +36,10 @@ export class Api {
     return HttpGet(`${this.resource}/${payload}`);
   }
 
-
+  // ?q=a&page=1&limit=30
+  async getDataSearch(payload) {
+    return HttpGet(`${this.resource}?q=${payload}&page=1&limit=30`);
+  }
 
   async getOneUserLogin(payload = {}) {
     return HttpPost(`${this.resource}`, payload);
