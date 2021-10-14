@@ -142,7 +142,7 @@ li {
   color: red;
 }
 .active-parent {
-  text-decoration: underline red solid;
+  /* text-decoration: underline red solid; */
   color: red;
 }
 .sub-menu {
@@ -150,4 +150,51 @@ li {
   text-decoration: none;
   font-size: 14px;
   padding: 5px;
+}
+/* mobi */
+.mobi-box {
+  display: none;
+}
+@media only screen and (max-width: 768px) {
+  .mobi-box {
+    display: block;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: #222;
+  }
+  .par-item {
+    position: relative;
+    cursor: pointer;
+    padding: 5px;
+    width: 80%;
+  }
+  .par-item:hover {
+    color: red;
+  }
+  .par-item:hover .list-par {
+    display: block;
+  }
+  .list-par {
+    display: none;
+    position: absolute;
+    width: 250px;
+    bottom: 70px;
+  }
+  .mobi-genres .list-par {
+    left: 0;
+  }
+  .mobi-ranking .list-par {
+    right: 0;
+  }
+
+  .navi {
+    background: #222;
+    padding-left: 20px;
+  }
+  .link-no-dec {
+    text-decoration: none;
+  }
 }

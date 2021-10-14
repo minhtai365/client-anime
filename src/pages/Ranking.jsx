@@ -19,8 +19,8 @@ export default function Ranking() {
         <div>
             {arrRank.length !== 0 ?
                 <div className="container text-light">
-                    <h5 className="mb-3">Anime top {rank.slug === 'nam' ? ' năm' : rank.slug === 'thang' ?
-                        ' tháng' : rank.slug === 'tuan' ? ' tuần' : ' ngày'}</h5>
+                    <h6 className="mb-3 text-uppercase">Anime top {rank.slug === 'nam' ? ' năm' : rank.slug === 'thang' ?
+                        ' tháng' : rank.slug === 'tuan' ? ' tuần' : ' ngày'}</h6>
                     <CardAnime data={arrRank} />
                 </div>
                 : null}

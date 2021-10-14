@@ -1,23 +1,29 @@
 import _debounce from 'lodash/debounce';
-import React, { useCallback, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useCallback, useEffect, useState } from 'react';
 import { getSearchApi } from '../../custom/repositories/api.repository';
 import ListItem from '../ListItem';
+import { Link, useLocation } from 'react-router-dom';
 import './header.css';
-
+import Mobi from './Mobi'
 export default function Header() {
     let location = useLocation();
     // const [search, setSearch] = useState('');
     const [visible, setVisible] = useState(false);
     const [arrResult, setArrResult] = useState([]);
-
+    let path = useLocation();
     function handleChange(e) {
         const { value } = e.target;
         // setSearch(value);
         if (value.trim() !== '') {
             debounceSearch(value);
         }
+        else {
+            setVisible(false);
+        }
     }
+    useEffect(() => {
+        setVisible(false);
+    }, [path.pathname])
     const debounceSearch = useCallback(_debounce((value) => {// eslint-disable-line react-hooks/exhaustive-deps
         fetchData(value)
     }, 1500), []);
@@ -33,9 +39,6 @@ export default function Header() {
     // }, [search])
     return (
         <div className="text-light my-header text-center position-relative">
-            {/* <li><Link to='/' className="nav-link"> Home </Link></li>
-                    <li><Link to='/upload' className="nav-link">Contact</Link></li>
-                    <li><Link to='/read-page' className="nav-link">Get-Link</Link></li> */}
             <div className="w-100 d-flex justify-content-around align-items-center header-box">
                 <div className="d-flex">
                     <Link className="d-flex logo " to={'/'}>
@@ -44,9 +47,9 @@ export default function Header() {
                     <div className="menu d-none d-md-block">
                         <ul className="d-flex box-item">
                             <Link className={location.pathname === "/" ? "active-parent item-parent" : "item-parent"} to={'/'}><li >Trang chủ</li></Link>
-                            <li className={location.pathname.indexOf('/genres/') === 0 ? "active-parent expan-menu item-parent" : "item-parent expan-menu"}>Thể loại
+                            <li className={location.pathname.indexOf('/anime/') === 0 ? "active-parent expan-menu item-parent" : "item-parent expan-menu"}>Thể loại
                                 <div className="list-item">
-                                    <ListItem type="genres" />
+                                    <ListItem type="anime" />
                                 </div>
                             </li>
                             <li className={location.pathname.indexOf('/ranking/') === 0 ? "active-parent expan-menu item-parent" : "item-parent expan-menu"}>Xếp hạng
@@ -92,7 +95,7 @@ export default function Header() {
 
             </div>
             {/* // <ListItem /> */}
-
+            <Mobi />
         </div>
     )
 }

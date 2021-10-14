@@ -8,7 +8,7 @@ export default function Index(props) {
 
   return (
     <div className="text-light">
-      <div className="row text-start">
+      <div className="row p-0 text-start">
         {data.map((item, i) => {
           return (
             <Link key={i} className="col-6 sub-menu" to={'/' + props.type + '/' + item.slug}>{item.name}</Link>
