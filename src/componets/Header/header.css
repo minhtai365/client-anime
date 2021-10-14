@@ -171,14 +171,14 @@ li {
     padding: 5px;
     width: 80%;
   }
-  .par-item:hover {
+  /* .par-item:hover {
     color: red;
   }
   .par-item:hover .list-par {
     display: block;
-  }
+  } */
   .list-par {
-    display: none;
+    /* display: none; */
     position: absolute;
     width: 250px;
     bottom: 70px;
