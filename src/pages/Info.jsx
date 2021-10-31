@@ -138,10 +138,10 @@ export default function Info() {
                             <ShimmerTitle line={1} className='w-100' variant="secondary" />
                         </div>
                         <div className="d-none d-md-block">
-                            <ShimmerSimpleGallery card imageHeight={300} col={4} row={1} caption />
+                            <ShimmerSimpleGallery imageHeight={150} col={4} row={1} />
                         </div>
                         <div className="d-md-none d-block">
-                            <ShimmerSimpleGallery card imageHeight={200} col={2} row={1} caption />
+                            <ShimmerSimpleGallery imageHeight={150} col={2} row={1} />
                         </div>
                     </div>
                 }

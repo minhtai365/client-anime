@@ -17,14 +17,12 @@ export default function Genres() {
     }, [genres.slug])
     return (
         <div>
-            {arrGenres.length !== 0 ?
-                <div className="container text-light">
-                    {GENRES.filter(item => item.slug === genres.slug).map((gen, i) => {
-                        return <h6 className="mb-3 text-uppercase">Thể Loại {gen.name}</h6>
-                    })}
-                    <CardAnime data={arrGenres} />
-                </div>
-                : null}
+            <div className="container text-light">
+                {GENRES.filter(item => item.slug === genres.slug).map((gen, i) => {
+                    return <h6 key={i} className="mb-3 text-uppercase">Thể Loại {gen.name}</h6>
+                })}
+                <CardAnime data={arrGenres} />
+            </div>
         </div>
     )
 }

@@ -6,6 +6,9 @@ import { getAnimeInfoApi } from '../custom/repositories/api.repository';
 import { getEpisodes } from '../reduxtoolkit/sliceReducer/dataSlice';
 import Episodes from '../shared/Episodes';
 import Recommended from '../shared/Recommended';
+import {
+    ShimmerSimpleGallery
+} from "react-shimmer-effects";
 export default function Watch() {
     const [objSource, setObjSource] = useState(null);
     const anime = useParams();
@@ -49,15 +52,16 @@ export default function Watch() {
 
     return (
         <div>
-            {objSource !== null ?
-                <div className="container text-light">
+            <div className="container text-light">
+                {objSource !== null ?
                     <ReactPlayer controls={true} playing={true} width="100%" height="70%"
                         url={objSource && `${objSource.videoSource}`} />
-                    <h6>{objSource && objSource.full_name}</h6>
-                    <div className="text-des mb-3">{objSource && objSource.views} lượt xem</div>
-                    <Episodes data={episodes} slug={anime.slug} id={anime.id} />
-                    <Recommended />
-                </div>
-                : null}</div >
+                    : <ShimmerSimpleGallery imageHeight={500} caption col={1} row={1} />}
+                <h6>{objSource && objSource.full_name}</h6>
+                <div className="text-des mb-3">{objSource && objSource.views} lượt xem</div>
+                <Episodes data={episodes} slug={anime.slug} id={anime.id} />
+                <Recommended />
+            </div>
+        </div >
     )
 }

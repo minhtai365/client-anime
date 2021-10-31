@@ -1,12 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import {
+    ShimmerSimpleGallery
+} from 'react-shimmer-effects';
 import '../../pages/css/home.css'
 export default function index(props) {
     return (
         <div>
             <div className="row">
-                {props.data.slice(0, 12).map((item, i) => {
+                {props.data.length !== 0 ? props.data.slice(0, 12).map((item, i) => {
                     return <Link key={i} to={'/info/' + item.slug} className="col-6 col-md-3  h-150 mb-3">
                         <div className="home-card position-rel ">
                             <img className="home-bgimg radius-10" src={item.thumbnail} alt={item.name} />
@@ -22,7 +24,17 @@ export default function index(props) {
                             </div>
                         </div>
                     </Link>
-                })}
+                })
+                    :
+                    <div>
+                        <div className="d-none d-md-block">
+                            <ShimmerSimpleGallery imageHeight={150} col={4} row={3} />
+                        </div>
+                        <div className="d-md-none d-block">
+                            <ShimmerSimpleGallery imageHeight={150} col={2} row={6} />
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     )

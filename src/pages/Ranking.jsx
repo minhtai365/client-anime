@@ -17,13 +17,11 @@ export default function Ranking() {
 
     return (
         <div>
-            {arrRank.length !== 0 ?
-                <div className="container text-light">
-                    <h6 className="mb-3 text-uppercase">Anime top {rank.slug === 'nam' ? ' năm' : rank.slug === 'thang' ?
-                        ' tháng' : rank.slug === 'tuan' ? ' tuần' : ' ngày'}</h6>
-                    <CardAnime data={arrRank} />
-                </div>
-                : null}
+            <div className="container text-light">
+                <h6 className="mb-3 text-uppercase">Anime top {rank.slug === 'nam' ? ' năm' : rank.slug === 'thang' ?
+                    ' tháng' : rank.slug === 'tuan' ? ' tuần' : ' ngày'}</h6>
+                <CardAnime data={arrRank} />
+            </div>
         </div>
     )
 }

@@ -4,6 +4,10 @@ import Pannel from '../componets/Pannel';
 import { getRecentlyApi, getSlideApi } from '../custom/repositories/api.repository';
 import Recommended from '../shared/Recommended';
 import './css/home.css';
+import {
+    ShimmerThumbnail,
+    ShimmerSimpleGallery
+} from "react-shimmer-effects";
 export default function Home() {
     const [arrRecently, setArrRecently] = useState([]);
     const [arrSlide, setArrSlide] = useState([]);
@@ -26,10 +30,15 @@ export default function Home() {
         fetchData();
     }, [])
     return (
-        <div>{arrSlide.length !== 0 ?
+        <div>
             <div className="container">
                 <div className="pannel">
-                    <Pannel data={arrSlide} />
+                    {arrSlide.length !== 0 ?
+                        <Pannel data={arrSlide} /> :
+                        <div>
+                            <ShimmerThumbnail height={300} className="m-0" rounded />
+                        </div>
+                    }
                 </div>
                 <h4 className="title text-light mb-3">
                     Mới cập nhật
@@ -53,9 +62,20 @@ export default function Home() {
                         </Link>
                     })}
                 </div> */}
-                <CardAnime data={arrRecently} />
+                {arrRecently.length !== 0 ?
+                    <CardAnime data={arrRecently} />
+                    :
+                    <div>
+                        <div className="d-none d-md-block">
+                            <ShimmerSimpleGallery imageHeight={150} col={4} row={3} />
+                        </div>
+                        <div className="d-md-none d-block">
+                            <ShimmerSimpleGallery imageHeight={150} col={2} row={6} />
+                        </div>
+                    </div>
+                }
                 <Recommended />
             </div>
-            : null}</div>
+        </div>
     )
 }
